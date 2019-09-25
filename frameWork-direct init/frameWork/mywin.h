@@ -1,0 +1,27 @@
+#pragma once
+
+#include<Windows.h>
+#include "Direct.h"
+
+class C_MYWIN
+{
+private:
+	static C_MYWIN	* m_pMyWin;
+	HINSTANCE	m_hInstance;
+	HWND		m_hWnd;
+	Direct ADirect = Direct();
+private:
+	C_MYWIN();
+
+public:
+	static void createMyWin();
+	static C_MYWIN * getMyWin();
+	static void releaseMyWin();
+
+	static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+	LRESULT CALLBACK myProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+
+	void init(HINSTANCE hInstance);
+
+
+};
